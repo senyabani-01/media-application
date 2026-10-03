@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Warming World: a climate data story</title>
+<meta name="description" content="An interactive story of land temperature change since 1850, for secondary-school learners.">
+<meta name="theme-color" content="#c4452d"><link rel="stylesheet" href="style.css"></head><body>
+<a class="skip" href="#main">Skip to story</a>
+<header><strong>Our Warming World</strong>
+<nav aria-label="Chapters"><button data-go="0">Intro</button><button data-go="1">1 Trend</button><button data-go="2">2 Doubt</button><button data-go="3">3 Explore</button><button data-go="4">4 Care</button></nav>
+<button id="motion" aria-pressed="true">Animation: on</button></header>
+<main id="main">
+<noscript><p style="padding:1rem">This story needs JavaScript. Data tables are not available without it.</p></noscript>
+<div id="err" role="region" aria-label="Load data" hidden><h2>Load the data</h2><p>Select <code>GlobalLandTemperaturesByMajorCity.csv</code> (it is in the data folder).</p><input type="file" id="files" accept=".csv" multiple aria-label="Choose CSV files"><p id="msg" role="status"></p></div>
+
+<section class="chap" tabindex="-1" aria-labelledby="h0"><h1 id="h0">Are our cities really getting warmer?</h1>
+<p>Thermometers in 100 major cities have recorded temperatures for over a century. In this story you will see what they say, how sure we can be, and then explore your own questions.</p>
+<p class="hint">Navigate with the Next/Back buttons or the arrow keys.</p></section>
+
+<section class="chap" tabindex="-1" aria-labelledby="h1"><h2 id="h1">1. One line, 110+ years</h2>
+<p>Each point is one year's average temperature across 100 major cities, compared with the 1901–1930 average (the zero line). Above zero is warmer than that period.</p>
+<figure><svg id="c1" viewBox="0 0 640 360" role="img"></svg><figcaption id="cap1"></figcaption></figure>
+<p>Another view: each coloured stripe is one year, from 1900 (left) to 2012 (right). Blue is cooler, red is warmer.</p>
+<svg id="stripes" viewBox="0 0 640 60" role="img" aria-label="Warming stripes: years from 1900 to 2012 shown as stripes that change from blue (cooler) to red (warmer)."></svg>
+<button id="replay">Replay animation</button>
+<details><summary>Data table (text alternative)</summary><div id="t1"></div></details></section>
+
+<section class="chap" tabindex="-1" aria-labelledby="h2"><h2 id="h2">2. How sure are we?</h2>
+<p>Old thermometers were sparser and less precise. The shaded band shows the uncertainty. Notice it narrows as measurements improve.</p>
+<label><input type="checkbox" id="band"> Show uncertainty band</label>
+<figure><svg id="c2" viewBox="0 0 640 360" role="img"></svg><figcaption id="cap2"></figcaption></figure>
+<details><summary>Data table (text alternative)</summary><div id="t2"></div></details></section>
+
+<section class="chap" tabindex="-1" aria-labelledby="h3"><h2 id="h3">3. Explore for yourself</h2>
+<p>Pick a city (try Harare!) and a time window. Is every place changing the same way?</p>
+<div class="ctl"><label>City <select id="place"></select></label>
+<label>From <output id="ofrom"></output><input type="range" id="from" min="1900" max="2000" value="1900"></label>
+<label>To <output id="oto"></output><input type="range" id="to" min="1910" max="2012" value="2012"></label></div>
+<figure><svg id="c3" viewBox="0 0 640 360" role="img"></svg><figcaption id="cap3" aria-live="polite"></figcaption></figure>
+<details><summary>Data table (text alternative)</summary><div id="t3"></div></details></section>
+
+<section class="chap" tabindex="-1" aria-labelledby="h4"><h2 id="h4">4. Reading charts responsibly</h2>
+<ul><li><b>Framing:</b> the vertical axis starts near the data, not at zero. This makes change easier to see, but can look dramatic. Compare with the numbers in the captions.</li>
+<li><b>Short windows mislead:</b> try a 10-year window in chapter 3. Long-term trends need long records.</li>
+<li><b>Cities only:</b> these are 100 big cities, not the whole planet. Cities can also be warmed by their own growth, and oceans are not included.</li>
+<li><b>One dataset:</b> scientists compare many datasets before drawing conclusions.</li></ul>
+<p><b>Source:</b> Berkeley Earth, <a href="https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data">Climate Change: Earth Surface Temperature Data</a> (Kaggle), major cities file. Years with missing months and cities with gaps were removed; anomalies are calculated against 1901–1930.</p><p><a id="dl" download="data.json" hidden>Download data.json</a> (put it in the data folder to deploy without the CSVs)</p></section>
+</main>
+<footer><button id="prev">← Back</button><span id="pos" aria-live="polite"></span><button id="next">Next →</button></footer>
+<script src="data/data.js"></script>
+<script src="script.js"></script></body></html>

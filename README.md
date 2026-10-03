@@ -30,6 +30,9 @@ git push -u origin main
 ```
 
 ## Deploy (free, needed for submission)
+**Full step-by-step guide for GitHub Pages: `docs/DEPLOY_GITHUB_PAGES.md`.** In short: no server is started online; push the files to a public GitHub repository, then Settings -> Pages -> Deploy from a branch -> main / root. Your link will be `https://YOUR-USERNAME.github.io/REPOSITORY/`.
+
+Other options:
 - **Netlify:** drag the folder onto https://app.netlify.com/drop
 - **GitHub Pages:** push the folder to a repo, then Settings -> Pages -> deploy from `main` / root.
 You may delete the large CSV before uploading; the site only needs `data/data.json`. Submit the live link.
